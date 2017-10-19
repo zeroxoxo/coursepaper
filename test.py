@@ -21,5 +21,3 @@ for line in r.iter_lines():
   print(line.split("\t"))
 
 file.close()
-
-
