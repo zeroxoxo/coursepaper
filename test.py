@@ -21,4 +21,6 @@ def vb_import(ds):
         line = line.decode('utf-8')
         print(line)
     file.close()
-vb_import('agambiae_eg_gene')
+#vb_import('agambiae_eg_gene')
+abc = server.datasets['agambiae_eg_gene']
+#abc.show_attributes()
