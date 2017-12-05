@@ -1,4 +1,6 @@
 from biomart import BiomartServer
+from Clean import clean
+
 server = BiomartServer( "http://biomart.vectorbase.org/biomart/" )
 #'vb_gene_mart_1708': VectorBase Genes database
 #'agambiae_eg_gene': Anopheles gambiae genes (AgamP4) dataset
