@@ -10,7 +10,7 @@ def search(path, ds):
             'filters': {},
             'attributes': [ 'chromosome_name', 'start_position', 'end_position', 'strand', 'ensembl_gene_id' ]
         })
-        name = path + i + '_gene.txt'
+        name = path + str(ds.index(i)) + '_gene.tsv'
         f = open(name, 'w')
         f.close()
         f = open(name, 'a')
@@ -26,7 +26,7 @@ def search(path, ds):
         'filters': {},
         'attributes': l
     }, header = 1)
-    name1 = path + ds[0] + '_homology_genes.txt'
+    name1 = path + '0_homology_genes.tsv'
     f = open(name1, 'w')
     f.close()
     f = open(name1, 'a')
@@ -36,4 +36,5 @@ def search(path, ds):
     f.close()
 
     click.echo('Done')
+
 
