@@ -1,1 +1,6 @@
 .idea
+*.pyc
+__pycache__
+*.txt
+.cache
+*.tsv

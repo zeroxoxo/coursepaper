@@ -1,33 +1,29 @@
-import copy
-def clean1(file):
-    f = open(file, 'r')
-    l = []
-    for line in f:
-        l.append(line.split('\t'))
-    m = copy.deepcopy(l)
-    for i in m:
-        for j in i:
-            if ((j == '') or (j == '\n')) and l.count(i) > 0:
-                l.remove(i)
-    m = copy.deepcopy(l)
-    for i in m:
-        r = ''
-        for j in m:
-            if (i[0] == j[0]) and (i != j) and (l.count(i) > 0) and (l.count(j) > 0):
-                l.remove(j)
-                r = i[0]
-        if i[0] == r:
-            l.remove(i)
-    p = ''
+def clean(input_file, output_file):
+    with open(input_file, 'r') as homology_file:
+        file_lines = []
+        for line in homology_file:
+            file_lines.append(line.split('\t'))
 
-    for i in l:
-        for j in i:
-            p += j + '\t'
-        p = p[:-1]
-    g = open(file[:-4] + '_post_clean.txt', 'w')
-    g.write(p)
-    f.close()
-    g.close()
-    return
+    file_columns = [i for i in zip(*file_lines)]
 
-clean1('f1.txt')
+    clean_lines = []
+
+    for row_idx, line in enumerate(file_lines):
+        line_status = True
+        print(row_idx)
+        for col_idx, cell in enumerate(line):
+
+            if not cell or cell == '\n':
+                line_status = False
+
+            # THIS CHECKS VEEERRRYYYY SLOOOOWWW! NEED TO OPTIMIZE! but it works
+            if cell in file_columns[col_idx][0:row_idx] or cell in file_columns[col_idx][row_idx+1:]:
+                line_status = False
+
+        if line_status:
+            clean_lines.append(line)
+
+    with open(output_file, 'w') as ch:
+        ch.write(''.join(['\t'.join(line) for line in clean_lines]))
+
+clean('./output/agambiae_homology_genes.txt', './clean_homology.tsv')
