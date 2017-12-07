@@ -11,6 +11,8 @@ def test_homology_file(file):
         for k in f:
             if not k:
                 return print('Oops')
+
     return print("It's okay, man")
 
-test_homology_file('/home/lab51/coursepaper/output/temp/clean/3_homology_genes.tsv')
+test_homology_file('/home/lab51/coursepaper/output/temp/clean/11_homology_genes.tsv')
+
