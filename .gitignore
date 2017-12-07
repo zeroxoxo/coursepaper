@@ -4,3 +4,4 @@ __pycache__
 *.txt
 .cache
 *.tsv
+!Vb_import_manual.txt
