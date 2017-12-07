@@ -6,7 +6,7 @@ def test_homology_file(file):
         f = homology.iloc[:, i]
         g = f.duplicated(keep=False)
         for j in g:
-            if j == True:
+            if j:
                 return print('Oops')
         for k in f:
             if not k:
