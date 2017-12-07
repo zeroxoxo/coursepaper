@@ -13,4 +13,4 @@ def test_homology_file(file):
                 return print('Oops')
     return print("It's okay, man")
 
-test_homology_file('~/coursepaper/output/temp/clean/0_homology_genes.tsv')
+test_homology_file('/home/lab51/coursepaper/output/temp/clean/3_homology_genes.tsv')
