@@ -17,8 +17,8 @@ def clean(input_file, output_file):
                 line_status = False
 
             # THIS CHECKS VEEERRRYYYY SLOOOOWWW! NEED TO OPTIMIZE! but it works
-            if cell in file_columns[col_idx][0:row_idx] or cell in file_columns[col_idx][row_idx+1:]:
-                line_status = False
+            #if cell in file_columns[col_idx][0:row_idx] or cell in file_columns[col_idx][row_idx+1:]:
+            #    line_status = False
 
         if line_status:
             clean_lines.append(line)
@@ -26,4 +26,4 @@ def clean(input_file, output_file):
     with open(output_file, 'w') as ch:
         ch.write(''.join(['\t'.join(line) for line in clean_lines]))
 
-clean('~/coursepaper/output/temp/imp/0_homology_genes.tsv', '~/coursepaper/output/temp/clean/0_homology_genes.tsv')
+clean('/home/lab51/coursepaper/output/temp/imp/0_homology_genes.tsv', '/home/lab51/coursepaper/output/temp/clean/2_homology_genes.tsv')
