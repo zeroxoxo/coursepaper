@@ -7,4 +7,4 @@ def clean(input_file, output_file):
     in_file.to_csv(output_file, sep='\t', index=False)
     return print('Done')
 
-clean('/home/lab51/coursepaper/output/temp/imp/0_homology_genes.tsv', '/home/lab51/coursepaper/output/temp/clean/0_homology_genes.tsv')
+clean('/home/lab51/coursepaper/Data/temp/imp/0_homology_genes.tsv', '/home/lab51/coursepaper/Data/temp/clean/0_homology_genes.tsv')

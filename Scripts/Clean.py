@@ -26,4 +26,4 @@ def clean(input_file, output_file):
     with open(output_file, 'w') as ch:
         ch.write(''.join(['\t'.join(line) for line in clean_lines]))
 
-clean('/home/lab51/coursepaper/output/temp/imp/0_homology_genes.tsv', '/home/lab51/coursepaper/output/temp/clean/1_homology_genes.tsv')
+clean('/home/lab51/coursepaper/Data/temp/imp/0_homology_genes.tsv', '/home/lab51/coursepaper/Data/temp/clean/1_homology_genes.tsv')

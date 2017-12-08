@@ -8,4 +8,4 @@ def clean_g(h_path, g_path):
         g.to_csv(h_path + str(i) + '_clean_genes.tsv', sep='\t', header=False, index=False)
     return print('Done')
 
-clean_g('~/coursepaper/output/temp/clean/', '~/coursepaper/output/temp/imp/')
+clean_g('~/coursepaper/Data/temp/clean/', '~/coursepaper/Data/temp/imp/')
