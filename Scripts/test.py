@@ -8,10 +8,10 @@ def test_homology_file(file):
         g = f.duplicated(keep=False)
         for j in g:
             if j:
-                return print('Oops')
+                return print('Oops, duplicates.')
         for k in f:
             if k == np.nan:
-                return print('Oops')
+                return print('Oops, empty cell.')
 
     return print("It's okay, man")
 
