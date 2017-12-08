@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 def test_homology_file(file):
     homology = pd.read_table(file, header=None, sep='\t')
     rows, cols = homology.shape
@@ -9,10 +10,10 @@ def test_homology_file(file):
             if j:
                 return print('Oops')
         for k in f:
-            if not k:
+            if k == np.nan:
                 return print('Oops')
 
     return print("It's okay, man")
 
-test_homology_file('/home/lab51/coursepaper/output/temp/clean/11_homology_genes.tsv')
+test_homology_file('/home/lab51/coursepaper/output/temp/clean/0_homology_genes.tsv')
 
