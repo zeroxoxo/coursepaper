@@ -5,7 +5,7 @@ def comparison(path):
     for i in range(9):
         x = pd.read_table(path + '/gene' + str(i+2) + '/blocks.txt',header=None, sep='\t')
         rows, col = x.shape
-        o.append(rows)
+        o.append(rows-4)
     print(o)
     return
 comparison('/home/lab51/coursepaper/Data/wf_out1/clean/anch')
