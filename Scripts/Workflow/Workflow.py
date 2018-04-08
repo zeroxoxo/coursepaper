@@ -5,33 +5,36 @@ from biomart import BiomartServer
 server = BiomartServer('http://biomart.vectorbase.org/biomart/')
 def search(path, ds):
     for i in ds:
-        r = server.datasets[i + '_eg_gene'].search({
-            'filters': {},
-            'attributes': [ 'chromosome_name', 'start_position', 'end_position', 'strand', 'ensembl_gene_id' ]
-        })
         name = path + str(ds.index(i)) + '_gene.tsv'
         f = open(name, 'w')
         f.close()
         f = open(name, 'a')
-        for line in r.iter_lines():
-            line = line.decode('utf-8')
-            f.write(line + '\n')
+        for v in ['2L','2R','3L','3R','X']:
+            r = server.datasets[i + '_eg_gene'].search({
+                'filters': {'chromosome_name': v},
+                'attributes': [ 'chromosome_name', 'start_position', 'end_position', 'strand', 'ensembl_gene_id' ]
+            })
+            for line in r.iter_lines():
+                line = line.decode('utf-8')
+                f.write(line + '\n')
         f.close()
 
     l = ['ensembl_gene_id']
-    for k in range(len(ds)-1):
-        l.append(ds[k+1]+'_eg_homolog_ensembl_gene')
-    s = server.datasets[ds[0]+'_eg_gene'].search({
-        'filters': {},
-        'attributes': l
-    }, header = 1)
     name1 = path + '0_homology_genes.tsv'
     f = open(name1, 'w')
     f.close()
     f = open(name1, 'a')
-    for line in s.iter_lines():
-        line = line.decode('utf-8')
-        f.write(line + '\n')
+    for k in range(len(ds)-1):
+        l.append(ds[k+1]+'_eg_homolog_ensembl_gene')
+    for v in ['2L', '2R', '3L', '3R', 'X']:
+        s = server.datasets[ds[0]+'_eg_gene'].search({
+            'filters': {'chromosome_name': v},
+            'attributes': l
+        }, header = 1)
+
+        for line in s.iter_lines():
+            line = line.decode('utf-8')
+            f.write(line + '\n')
     f.close()
     return print('VB done.')
 
