@@ -14,4 +14,4 @@ def k_way(path):
     out.to_csv(path + 'syn_input.tsv', sep='\t', index=False)
     return
 
-k_way('C:/Users/1/PycharmProjects/coursepaper/wf_test1/clean/')
+k_way('/home/lab51/coursepaper/Data/wf_out2/clean/')
