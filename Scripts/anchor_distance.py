@@ -3,9 +3,9 @@ import math as m
 
 def anch_denc():
     out = {}
-    for t in range(3, 8):
-        for v in range(2, 7):
-            a = open('C:/Users/1/Desktop/Data/new_wf_out/grimm_output/gene_m' + str(t) + '_g' + str(v) + '/mgr_micro.txt', 'r')
+    for t in range(4, 14, 2):
+        for v in range(4, 10, 2):
+            a = open('C:/Users/1/Desktop/Data/last_wf_out/grimm_output/gene_m' + str(t) + '_g' + str(v) + '/mgr_micro.txt', 'r')
             ar = a.readlines()
             datalayer0 = []
             datalayer1 = []

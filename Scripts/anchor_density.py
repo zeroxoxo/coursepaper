@@ -1,12 +1,11 @@
 import pandas as pd
 
-p = pd.read_table('C:/Users/1/Desktop/Data/new_wf_out/clean/grimm_a_output/unique_coords.txt',
-                        header=None, sep='\s+')
+p = pd.read_table('C:/Users/1/Desktop/Data/last_wf_out/clean/grimm_a_output/unique_coords.txt', header=None)
 r, c = p.shape
 y = 0
-for i in range(3, 8):
-    for j in range(2, 7):
-        file = open('C:/Users/1/Desktop/Data/new_wf_out/grimm_output/gene_m' + str(i) + '_g' + str(j) + '/report.txt', 'r')
+for i in range(4, 14, 2):
+    for j in range(4, 10, 2):
+        file = open('C:/Users/1/Desktop/Data/last_wf_out/grimm_output/gene_m' + str(i) + '_g' + str(j) + '/report.txt', 'r')
         lines = file.readlines()
         file.close()
         q = []
