@@ -3,8 +3,8 @@ import math as m
 
 def anch_denc():
     out = {}
-    for t in range(4, 14, 2):
-        for v in range(4, 10, 2):
+    for t in range(4, 16, 2):
+        for v in range(2, 14, 2):
             a = open('C:/Users/1/Desktop/Data/last_wf_out/grimm_output/gene_m' + str(t) + '_g' + str(v) + '/mgr_micro.txt', 'r')
             ar = a.readlines()
             datalayer0 = []
@@ -62,7 +62,7 @@ def anch_denc():
                 xys += xy
                 yzs += yz
                 xzs += xz
-            out['gene_m' + str(t) + '_g' + str(v)] = [xys, yzs, xzs]
+            out['gene_m' + str(t) + '_g' + str(v)] = round((xys + yzs + xzs)/3, 4)
     return out
 
 

@@ -45,9 +45,7 @@ def search(path, ds):
 
 def clean_h(input_file, output_file):
     in_file = pd.read_table(input_file, sep='\t').dropna()
-    rows, cols = in_file.shape
-    for i in range(cols):
-        in_file = in_file.drop_duplicates(subset=in_file.iloc[:,[i]], keep=False)
+    in_file = in_file.drop_duplicates(keep=False)
     in_file.to_csv(output_file, sep='\t', index=False)
     return print('Done Clean_h.')
 
@@ -70,7 +68,7 @@ def k_way(path):
         p['2_y'] = p['2_y'] - p['1_y']
         p.rename({'0_y': 'genome'+str(i+1)+'_chr', '1_y': 'genome'+str(i+1)+'_start', '2_y': 'genome'+str(i+1)+'_len',
                           3 : 'genome'+str(i+1)+'_sign'}, axis='columns', inplace=True)
-        out = pd.concat([out, p.iloc[:,3:7]], join='inner', axis=1)
+        out = pd.concat([out, p.iloc[:,4:8]], join='inner', axis=1)
     out.to_csv(path + 'k_way_anchors.tsv', sep='\t', index=False)
     return
 
