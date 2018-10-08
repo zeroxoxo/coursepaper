@@ -5,3 +5,4 @@ __pycache__
 .cache
 *.tsv
 !Vb_import_manual.txt
+!README.txt
