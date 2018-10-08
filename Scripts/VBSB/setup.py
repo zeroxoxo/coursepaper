@@ -1,14 +1,14 @@
 from setuptools import setup
 
 setup(
-    name='Workflow',
-    version='0.9a',
-    py_modules=['Workflow'],
+    name='VBSB',
+    version='0.9b',
+    py_modules=['VBSB'],
     install_requires=[
         'Click', 'Biomart', 'Pandas', 'Setuptools'
     ],
     entry_points='''
         [console_scripts]
-        Workflow=Workflow:Workflow
+        VBSB=VBSB:VBSB
     ''',
 )
