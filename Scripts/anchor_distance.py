@@ -1,11 +1,11 @@
 import math as m
 
 
-def anch_denc():
+def anch_dist(path):
     out = {}
     for t in range(4, 16, 2):
         for v in range(2, 14, 2):
-            a = open('C:/Users/1/Desktop/Data/last_wf_out/grimm_output/gene_m' + str(t) + '_g' + str(v) + '/mgr_micro.txt', 'r')
+            a = open(path + '/grimm_output/gene_m' + str(t) + '_g' + str(v) + '/mgr_micro.txt', 'r')
             ar = a.readlines()
             datalayer0 = []
             datalayer1 = []
@@ -66,4 +66,4 @@ def anch_denc():
     return out
 
 
-print(anch_denc())
+print(anch_dist('C:/Users/1/Desktop/Data/last_wf_out'))
