@@ -1,11 +1,12 @@
 import pandas as pd
-import click
-def clean_h(input_file, output_file):
-    in_file = pd.read_table(input_file, sep='\t').dropna()
-    rows, cols = in_file.shape
-    for i in range(cols):
-        in_file = in_file.drop_duplicates(subset=in_file.iloc[:,[i]], keep=False)
-    in_file.to_csv(output_file, sep='\t', index=False)
-    return print('Done Clean_h.')
 
-#clean_h('/home/lab51/coursepaper/Data/temp/imp/0_homology_genes.tsv', '/home/lab51/coursepaper/Data/temp/clean/0_homology_genes.tsv')
+def clean_h(input_file, output_file):
+    in_file = pd.read_table(input_file, sep='\t', skiprows=1, header=None)
+    in_file.dropna(inplace=True)
+    cols = in_file.shape[1]
+    for i in range(cols):
+        in_file.drop_duplicates(subset=[i], keep=False, inplace=True)
+    in_file.to_csv(output_file, sep='\t', index=False, header=None)
+    return print('Done Clean_h')
+
+clean_h(r'C:\Users\1\Desktop\Data\gam_atr\import\0_homology_genes.tsv', r'C:\Users\1\Desktop\Data\gam_atr\clean\0_homology_genes.tsv')

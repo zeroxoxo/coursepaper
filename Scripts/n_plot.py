@@ -43,7 +43,7 @@ for idx, l in enumerate(sp):
     df_a.set_index('parameters', inplace=True)
     sp_list.append(df_a)
 
-gene = 0
+gene = 8
 print()
 color_val = ['b', 'r', 'c']
 xpos = np.arange(len(sp_list[0].columns.values))
