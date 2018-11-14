@@ -14,15 +14,14 @@ def search(path, ds):
         f = open(name, 'w')
         f.close()
         f = open(name, 'a')
-        for v in ['2L','2R','3L','3R','X']:
-            r = server.datasets[i + '_eg_gene'].search({
-                'filters': {'chromosome_name': v},
-                'attributes': [ 'chromosome_name', 'start_position', 'end_position', 'strand', 'ensembl_gene_id' ]
-            })
-            for line in r.iter_lines():
-                line = line.decode('utf-8')
-                f.write(line + '\n')
-        f.close()
+        r = server.datasets[i + '_eg_gene'].search({
+            'filters': {},
+            'attributes': ['chromosome_name', 'start_position', 'end_position', 'strand', 'ensembl_gene_id']
+        })
+        for line in r.iter_lines():
+            line = line.decode('utf-8')
+            f.write(line + '\n')
+    f.close()
 
     l = ['ensembl_gene_id']
     name1 = path + '0_homology_genes.tsv'
