@@ -30,15 +30,14 @@ def search(path, ds):
     f = open(name1, 'a')
     for k in range(len(ds)-1):
         l.append(ds[k+1]+'_eg_homolog_ensembl_gene')
-    for v in ['2L', '2R', '3L', '3R', 'X']:
-        s = server.datasets[ds[0]+'_eg_gene'].search({
-            'filters': {'chromosome_name': v},
-            'attributes': l
-        }, header = 1)
 
-        for line in s.iter_lines():
-            line = line.decode('utf-8')
-            f.write(line + '\n')
+    s = server.datasets[ds[0]+'_eg_gene'].search({
+        'filters': {},
+        'attributes': l
+    }, header = 1)
+    for line in s.iter_lines():
+        line = line.decode('utf-8')
+        f.write(line + '\n')
     f.close()
     return print('VB done.')
 

@@ -166,11 +166,11 @@ def blocks_stats(path):
         lst = anch_denc3(path)
     else:
         lst = []
-        print('At this moment 2 or 3 species available only')
+        print('At this moment available only 2 or 3 species analysis')
     df = pd.read_table(path + '/blocks_stats.tsv', sep='\t')
     df1 = df.assign(Anchor_distance=lst)
     df1.to_csv(path + '/blocks_stats.tsv', sep='\t', index=False)
     return print('Done')
 
-blocks_stats('C:/Users/1/Desktop/Data/atr_alb/')
+blocks_stats('C:/Users/1/Desktop/Data/achr_data/atr_alb')
 
