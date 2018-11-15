@@ -1,8 +1,11 @@
-VBSB ver.0.9b
+VBSB ver.0.9c
 VectorBase Synteny Builder
 
 Exports genes data from http://biomart.vectorbase.org/biomart/, cleans data, converts it to k-way format and then
 runs GRIMM-Synteny algorithm to get a series of syntenic blocks for specified species
+
+Requirements:
+Unix-based OS, Python v.3.x.x, GRIMM-Synteny v2.02
 
 Installation:
 Download GRIMM-Synteny 2.02 from: http://grimm.ucsd.edu/DIST/ and follow instructions in README file. After installation
