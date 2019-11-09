@@ -5,11 +5,11 @@ import subprocess as sp
 
 start_time = time.time()
 
-
 @click.command()
 @click.argument('ds', nargs=-1)
 @click.argument('path', nargs=1, type=click.Path(exists=True))
 def workflow(ds: str, path: str):
+    "Main pipeline for getting and preparing data for, and running GRIMM_Syntheny"
     file = f'{path}/clean/k_way_anchors.tsv'
     dir_ = f'{path}/clean/grimm_a_output'
     try:
@@ -70,6 +70,7 @@ def vb_request(path: str, ds: tuple):
             f.write(line.decode('utf-8') + '\n')
     return print('VB done.')
 
+
 def clean_h(input_file: str, output_file: str):
     "Clean homology_genes.tsv file from empty cells and duplicates"
     # Open file
@@ -84,6 +85,7 @@ def clean_h(input_file: str, output_file: str):
     in_file.to_csv(output_file, sep='\t', index=False, header=None)
     return print('Done Clean_h')
 
+
 def clean_g(homology_path: str, genes_path: str):
     "Clean i_gene.tsv files"
     # Open homology_genes.tsv for reference
@@ -96,6 +98,7 @@ def clean_g(homology_path: str, genes_path: str):
         #gene_output = gene_input.loc[gene_input[gene_input.columns[4]].isin(ref[ref.columns[i]])]
         gene_output.to_csv(f'{homology_path}{i}_clean_genes.tsv', sep='\t', header=False, index=False)
     return print('Done Clean_g')
+
 
 def k_way(path: str):
     "Form file to input to GRIMM_Synteny in k_way format, specified in README of GRIMM"
