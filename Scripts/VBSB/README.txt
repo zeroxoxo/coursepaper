@@ -15,7 +15,7 @@ pip3 install C:/Downloads/coursepaper-master/Scripts/VBSB/ --upgrade
 make sure pip3 is in environment variable
 
 Usage:
-You can use any number of species presented in VectorBase Biomart Genes database. But it is reasonable to use not too many
-of ones, because GRIMM-Synteny poorly handles many species research.
+You can use any number of species presented in VectorBase Biomart Genes database. But it is reasonable to use not too many 
+ones, because GRIMM-Synteny poorly handles many species research.
 Type in cmd: VBSB *1st letter of genus then species, like 'agambiae' or 'hsapiens'* *path to output folder*, for example:
 VBSB agambiae aatroparvus aalbimanus C:\output\
