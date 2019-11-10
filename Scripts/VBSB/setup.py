@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='VBSB',
-    version='0.9c',
+    version='0.9d',
     py_modules=['VBSB'],
     install_requires=[
         'Click', 'Biomart', 'Pandas', 'Setuptools'
