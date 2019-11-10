@@ -1,4 +1,4 @@
-VBSB ver.0.9c
+VBSB ver.0.9d
 VectorBase Synteny Builder
 
 Exports genes data from http://biomart.vectorbase.org/biomart/, cleans data, converts it to k-way format and then
